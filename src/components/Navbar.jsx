@@ -4,7 +4,7 @@ import { BrowserRouter, Router, Route, Routes, Link } from "react-router-dom";
 import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import Signup from "./Signup";
 
-const Navbar = () => {
+const Navbar = ({search, setSearch}) => {
     return ( 
 
         <>
@@ -14,7 +14,7 @@ const Navbar = () => {
             <Link to='/' className="text-4xl font-extrabold">FITME</Link>
             <div className="flex justify-between items-center">
             <div className="flex items-center flex-1 max-w-md mx-8 border rounded-full px-4 py-2">
-                <input type="text" placeholder="search here"/>
+                <input type="text" placeholder="search here" value={search} onChange={(e)=>setSearch(e.target.value)}/>
                 <FaSearch className="text-gray-400"/>
             </div>
 
