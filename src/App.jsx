@@ -22,7 +22,9 @@ function App() {
   <Navbar search={search} setSearch={setSearch}/>
 
     <Routes>
+        <Route path='/' element={<Home />} />
       <Route path='/Signup' element={<Signup />}/>
+        <Route path='/search' element={<SearchResults />} />
     </Routes>
 
     <Home search={search}/>
