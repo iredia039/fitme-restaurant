@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Products = ({search}) => {
+const Products = ({search, setCard}) => {
 
 
    let [products, setProducts] = useState([])
@@ -57,9 +58,11 @@ const Products = ({search}) => {
 </div> */}
 
 
-    <div className="grid grid-cols-5 gap-6 px-8 py-8">
+
+            <div className="grid grid-cols-5 gap-6 px-8 py-8">
   {searchedItem.map((item) => (
-    <div
+     <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)}>
+         <div
       key={item.id}
       className="bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
     >
@@ -69,9 +72,9 @@ const Products = ({search}) => {
         <p className="text-gray-500 text-xs mt-1">{item.cuisine}</p>
       </div>
     </div>
+     </Link>
   ))}
 </div>
-        
         </>
      );
 }

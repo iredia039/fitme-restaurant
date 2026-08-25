@@ -6,6 +6,10 @@ import Signup from "./Signup";
 import Favicon from '../assets/favicon.png'
 
 const Navbar = ({search, setSearch}) => {
+
+    const [searched, setSearched] = useState('')
+
+
     return ( 
 
         <>
@@ -18,8 +22,10 @@ const Navbar = ({search, setSearch}) => {
          </div>
             <div className="flex justify-between items-center">
             <div className="flex items-center flex-1 max-w-md mx-8 border rounded-full px-4 py-2">
-                <input type="text" placeholder="search here" value={search} onChange={(e)=>setSearch(e.target.value)}/>
-                <FaSearch className="text-gray-400"/>
+                <input type="text" placeholder="search here" value={searched} onChange={(e)=>setSearched(e.target.value)}/>
+               <Link to={`/search?q=${searched}`}>
+               <FaSearch className="text-gray-400 cursor-pointer"/>
+               </Link>
             </div>
 
             <FaShoppingBag size={20} className="text-gray-500"/>

@@ -6,8 +6,9 @@ import banana from '../assets/banana.png';
 import firstFoodCard from '../assets/first-foodcard.png';
 import secondFoodCard from '../assets/2nd-foodcard.png';
 import Products from "./Products";
+import Fooddetails from "./Fooddetails";
 
-const Home = ({ search }) => {
+const Home = ({ search, setCard }) => {
     return ( 
 
         <>
@@ -119,7 +120,7 @@ const Home = ({ search }) => {
 
 
 
-          <Products search={search}/>
+          <Products search={search} setCard={setCard}/>
 
         </>
      );
