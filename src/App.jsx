@@ -17,6 +17,23 @@ function App() {
 
   const [search, setSearch] = useState('')
   const [card, setCard] = useState(null)
+  const [cart, setCart] = useState([]);
+
+  function addCart(item) {
+    setCart(goods => {
+      let exists = goods.find(food => food.id === item.id)
+      if (exists) {
+        return goods.map((food)=>(
+          food.id === item.id ? {...food, quantity: quantity + 1} : food
+        
+        ))
+      } else {
+        [...goods, {...item, quantity: 1}]
+      }
+    })
+  }
+  
+  console.log(cart);
   
 
   return (
@@ -26,7 +43,7 @@ function App() {
 
     <Routes>
         <Route path='/' element={<Home search={search} card={card} setCard={setCard}/>} />
-        <Route path="/fooddetails" element={<Fooddetails card={card}/>}/>
+        <Route path="/fooddetails" element={<Fooddetails card={card} addCart={addCart} cart={cart}/>}/>
       <Route path='/Signup' element={<Signup />}/>
         <Route path='/search' element={<Searchresults />} />
     </Routes>

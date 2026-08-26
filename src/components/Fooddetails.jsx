@@ -80,7 +80,7 @@
 
 import React from 'react';
 
-function Fooddetails({ card }) {
+function Fooddetails({ card, addCart, cart }) {
   if (!card) {
     return <p className="text-center py-10 text-gray-500">nothing clicked</p>;
   }
@@ -143,25 +143,17 @@ function Fooddetails({ card }) {
     </div>
     <div className="flex flex-col items-center gap-2">
       <img src={card.image} alt="" className="w-24 h-24 object-cover rounded-lg" />
-      <button className="text-green-600 text-sm font-semibold">Add +</button>
+      <button className="text-green-600 text-sm font-semibold cursor-pointer" onClick={() => addCart(card)}>Add +</button>
     </div>
   </div>
 
   {/* Cart */}
-  <div>
-    <div className="flex justify-between font-semibold">
-      <span>Cart</span>
-      <span className="text-gray-400 text-sm">0 items</span>
+<section>
+    <div>
+        <h2>Cart</h2>
+        <p>{cart.length} items</p>
     </div>
-    {/* cart items would map here once you have cart state */}
-    <div className="flex justify-between mt-4 font-bold">
-      <span>Subtotal</span>
-      <span>₹0</span>
-    </div>
-    <button className="bg-orange-500 text-white w-full py-2 rounded-lg mt-3">
-      Checkout
-    </button>
-  </div>
+</section>
 
 </div>
 </>
