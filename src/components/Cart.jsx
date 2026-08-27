@@ -8,6 +8,12 @@ function Cart({ addQuantity, removeQuantity, show, setShow, cart}) {
         <div>
             <h2>Cart</h2>
             <p>{cart.length} items</p>
+
+            {cart.map(item => (
+            <div key={item.id}>
+                <h2>{item.name}</h2>
+          </div>
+            ))}
         </div>
     </section> : null}
     
