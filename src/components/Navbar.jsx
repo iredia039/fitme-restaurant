@@ -5,10 +5,13 @@ import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import Signup from "./Signup";
 import Favicon from '../assets/favicon.png'
 
-const Navbar = ({search, setSearch, addCart, show, setShow}) => {
+const Navbar = ({search, setSearch, addCart, cartItems, show, setShow}) => {
 
    //  const [searched, setSearched] = useState('')
    const [typed, setTyped] = useState('')
+
+     const cartCount = cartItems?.reduce((total, item) => total + item.quantity, 0) || 0
+
    
 
 
@@ -31,8 +34,11 @@ const Navbar = ({search, setSearch, addCart, show, setShow}) => {
             </div>
 
 
-            <button onClick={()=>setShow(!show)}>
+            <button onClick={()=>setShow(!show)} className="relative">
             <FaShoppingBag size={20} className="text-gray-500"/>
+            <span className="absolute -top-2 -right-2 bg-[#FC8019] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {cartCount}
+            </span>
             </button>
             <Link to='/Signup' className="bg-black p-1 rounded-[10px] text-white">Sign up</Link>
             </div>

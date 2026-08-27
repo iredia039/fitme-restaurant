@@ -13,6 +13,7 @@ import Searchresults from "./components/Searchresults";
 import Fooddetails from "./components/Fooddetails";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 function App() {
 
@@ -47,27 +48,31 @@ function App() {
   }
 
   function removeQuantity(id) {
-    
-    setCart(goods => (
-      goods.map(item => (
-        item.id === id ? {...item, quantity: item.quantity - 1} : item
-      ).filter(item => item.quantity > 0)
-    )))
+    setCart(goods => {
+      const updated = goods.map(item =>
+        item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      return updated.filter(item => item.quantity > 0);
+    });
   }
   
 
   return (
     <>
 
-  <Navbar search={search} setSearch={setSearch} cart={addCart} show={show} setShow={setShow}/>
+  <Navbar search={search} setSearch={setSearch} cartItems={cart} cart={addCart} show={show} setShow={setShow}/>
 
   <Cart cart={cart} addQuantity={addQuantity} removeQuantity={removeQuantity} show={show} setShow={setShow}/>
+
+
 
     <Routes>
         <Route path='/' element={<Home search={search} card={card} setCard={setCard}/>} />
         <Route path="/fooddetails" element={<Fooddetails card={card} addCart={addCart} cart={cart}/>}/>
       <Route path='/Signup' element={<Signup />}/>
         <Route path='/search' element={<Searchresults setCard={setCard}/>} />
+<Route path="/checkout" element={<Checkout cart={cart} addQuantity={addQuantity} removeQuantity={removeQuantity} />} />
+
     </Routes>
 
     <Footer />
