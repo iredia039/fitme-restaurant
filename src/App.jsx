@@ -12,6 +12,7 @@ import Products from "./components/Products";
 import Searchresults from "./components/Searchresults";
 import Fooddetails from "./components/Fooddetails";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 
 function App() {
 
@@ -60,7 +61,7 @@ function App() {
 
   <Navbar search={search} setSearch={setSearch} cart={addCart} show={show} setShow={setShow}/>
 
-
+  <Cart cart={addCart} addQuantity={addQuantity} removeQuantity={removeQuantity} show={show} setShow={setShow}/>
 
     <Routes>
         <Route path='/' element={<Home search={search} card={card} setCard={setCard}/>} />
