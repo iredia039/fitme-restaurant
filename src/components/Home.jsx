@@ -34,8 +34,8 @@ const Home = ({ search, setCard }) => {
     </p>
 
     <div>
-           <input type="text" placeholder="search here"/>
-            <Link to='/Signup' className="inline-block bg-black p-1 rounded-[10px] text-white transition-transform duration-300 hover:scale-105">Sign up</Link>
+           <input type="text" placeholder="search here" className="border rounded-2xl w-[90%]"/>
+            {/* <Link to='/Signup' className="inline-block bg-black p-1 rounded-[10px] text-white transition-transform duration-300 hover:scale-105">Sign up</Link> */}
     </div>
   </div>
 

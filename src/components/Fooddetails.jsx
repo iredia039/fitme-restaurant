@@ -148,12 +148,7 @@ function Fooddetails({ card, addCart, cart }) {
   </div>
 
   {/* Cart */}
-<section>
-    <div>
-        <h2>Cart</h2>
-        <p>{cart.length} items</p>
-    </div>
-</section>
+
 
 </div>
 </>

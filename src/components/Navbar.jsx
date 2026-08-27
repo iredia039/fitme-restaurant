@@ -5,9 +5,11 @@ import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import Signup from "./Signup";
 import Favicon from '../assets/favicon.png'
 
-const Navbar = ({search, setSearch}) => {
+const Navbar = ({search, setSearch, addCart, show, setShow}) => {
 
-    const [searched, setSearched] = useState('')
+   //  const [searched, setSearched] = useState('')
+   const [typed, setTyped] = useState('')
+   
 
 
     return ( 
@@ -22,13 +24,16 @@ const Navbar = ({search, setSearch}) => {
          </div>
             <div className="flex justify-between items-center">
             <div className="flex items-center flex-1 max-w-md mx-8 border rounded-full px-4 py-2">
-                <input type="text" placeholder="search here" value={searched} onChange={(e)=>setSearched(e.target.value)}/>
-               <Link to={`/search?q=${searched}`}>
+                <input type="text" placeholder="search here" value={typed} onChange={(e)=>setTyped(e.target.value)} className=""/>
+               <Link to={`/search?q=${typed}`}>
                <FaSearch className="text-gray-400 cursor-pointer"/>
                </Link>
             </div>
 
+
+            <button onClick={()=>setShow(!show)}>
             <FaShoppingBag size={20} className="text-gray-500"/>
+            </button>
             <Link to='/Signup' className="bg-black p-1 rounded-[10px] text-white">Sign up</Link>
             </div>
         </nav>
