@@ -60,13 +60,7 @@ function App() {
 
   <Navbar search={search} setSearch={setSearch} cart={addCart} show={show} setShow={setShow}/>
 
-{show ? 
-  <section  className="fixed top-10 right-0 h-screen w-72 bg-white shadow-lg z-50 p-4">
-    <div>
-        <h2>Cart</h2>
-        <p>{cart.length} items</p>
-    </div>
-</section> : null}
+
 
     <Routes>
         <Route path='/' element={<Home search={search} card={card} setCard={setCard}/>} />
