@@ -14,6 +14,7 @@ import Fooddetails from "./components/Fooddetails";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import Login from "./components/Login";
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
         <Route path='/' element={<Home search={search} card={card} setCard={setCard}/>} />
         <Route path="/fooddetails" element={<Fooddetails card={card} addCart={addCart} cart={cart}/>}/>
       <Route path='/Signup' element={<Signup />}/>
+      <Route path="/login" element={<Login />}/>
         <Route path='/search' element={<Searchresults setCard={setCard}/>} />
 <Route path="/checkout" element={<Checkout cart={cart} addQuantity={addQuantity} removeQuantity={removeQuantity} />} />
 

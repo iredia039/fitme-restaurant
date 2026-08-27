@@ -1,36 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-function Checkout({ cart }) {
+function Checkout({ cart, addQuantity, removeQuantity }) {
+
+  const [note, setNote] = useState('');
 
   const itemTotal = cart.reduce((sum, item) => sum + (item.price || 200) * item.quantity, 0);
-  const deliveryFee = 130;
+  const deliveryFee = 10;
   const taxes = 20;
-  const discount = 4000;
-  const total = itemTotal + deliveryFee + taxes - discount;
+  const total = itemTotal + deliveryFee + taxes;
+
+  if(cart.length === 0){
+    return (
+      <div className="px-8 py-16 max-w-6xl mx-auto text-center">
+      <p className="text-gray-500 text-lg">Your cart is empty.</p>
+        <p className="text-gray-400 text-sm mt-2">Add items to proceed to checkout.</p>
+      </div>
+    )
+  }
+
+  function popUp() {
+    alert('sucessfully purchased shii')
+  }
 
   return (
     <div className="px-8 py-8 max-w-6xl mx-auto">
       <h2 className="text-xl font-bold border-b pb-3 mb-6">Secure Checkout</h2>
-
       <div className="grid grid-cols-3 gap-10">
 
         {/* Left: form */}
         <div className="col-span-2">
-
           {/* Delivery address */}
           <div className="mb-8">
-            <h3 className="flex items-center gap-2 font-semibold mb-3">
+          <h3 className="flex items-center gap-2 font-semibold mb-3">
               <FaMapMarkerAlt className="text-orange-500" /> Delivery address
             </h3>
             <div className="flex gap-4">
-              <div className="text-left text-sm p-4 rounded-lg border w-64 flex gap-2 items-start bg-[#FC8019] text-white border-[#FC8019]">
+              <div className="text-left text-sm p-4 rounded-lg border border-dashed w-64 flex gap-2 items-start bg-[#FC8019] text-white border-[#FC8019]">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
-                <span>Dno. 12-34-12, XYC Apartments, DOOR Colony, Hyderabad, Telangana</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse velit vel eos ex!</span>
               </div>
-              <div className="text-left text-sm p-4 rounded-lg border w-64 flex gap-2 items-start border-gray-300 text-gray-700">
+              <div className="text-left text-sm p-4 rounded-lg border  border-dashed w-64 flex gap-2 items-start border-[#FC8019] text-gray-700">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
-                <span>Dno. 12-34-12, XYC Apartments, DOOR Colony, Hyderabad, Telangana</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia esse tenetur amet laudantium!</span>
               </div>
             </div>
           </div>
@@ -41,9 +53,7 @@ function Checkout({ cart }) {
               <FaMapMarkerAlt className="text-orange-500" /> Type of Order
             </h3>
             <div className="flex gap-3">
-              <div className="text-sm font-medium px-4 py-2 rounded-lg border bg-[#FC8019] text-white border-[#FC8019]">
-                Subscription
-              </div>
+              <div className="text-sm font-medium px-4 py-2 rounded-lg border bg-[#FC8019] text-white border-[#FC8019]">Subscription</div>
               <div className="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-600">
                 Schedule Order
               </div>
@@ -58,7 +68,6 @@ function Checkout({ cart }) {
             <div className="pb-3 text-sm font-medium text-[#FC8019] border-b-2 border-[#FC8019]">Monthly</div>
             <div className="pb-3 text-sm font-medium text-gray-500">Weekly</div>
             <div className="pb-3 text-sm font-medium text-gray-500">Custom</div>
-
             <div className="ml-auto pb-3">
               <p className="text-xs text-gray-500 mb-1">What's the plan?</p>
               <div className="flex border rounded-lg overflow-hidden">
@@ -75,15 +84,13 @@ function Checkout({ cart }) {
             </div>
             <div>
               <label className="text-sm font-medium block mb-2">Any Note for us?</label>
-              <div className="border rounded-lg w-full p-3 text-sm text-gray-400 h-20">
-                Type you note here
-              </div>
+              <textarea value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Type you note here" className="border rounded-lg w-full p-3 text-sm text-gray-600 h-20"></textarea>
             </div>
           </div>
         </div>
 
         {/* Right: cart summary */}
-        <div className="border rounded-2xl p-5 h-fit">
+        <div className="border rounded-2xl p-5 h-[60vh]">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-bold">Cart</h3>
             <span className="text-gray-500 text-sm">{cart.length} Items</span>
@@ -98,16 +105,15 @@ function Checkout({ cart }) {
                   <p className="text-xs text-gray-500 mt-0.5">₹{item.price || 200}</p>
                 </div>
                 <div className="flex items-center gap-2 border rounded-full px-2 py-0.5">
-                  <span className="text-[#FC8019] font-bold">-</span>
+                  <button onClick={()=>removeQuantity(item.id)} className="text-[#FC8019] font-bold">-</button>
                   <span className="text-xs w-3 text-center">{item.quantity}</span>
-                  <span className="text-[#FC8019] font-bold">+</span>
+                  <button onClick={()=>addQuantity(item.id)} className="text-[#FC8019] font-bold">+</button>
                 </div>
               </div>
             </div>
           ))}
 
           <hr className="my-3" />
-
           <p className="text-sm font-semibold mb-2">Bill details</p>
           <div className="text-sm text-gray-600 space-y-1.5">
             <div className="flex justify-between">
@@ -129,22 +135,12 @@ function Checkout({ cart }) {
           </p>
 
           <hr className="my-3" />
-
-          <div className="flex justify-between text-sm text-gray-600 mb-1">
-            <span>Total</span>
-            <span>₹{(itemTotal + deliveryFee + taxes).toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between text-sm text-gray-600 mb-3">
-            <span>Discount</span>
-            <span>-₹{discount.toFixed(2)}</span>
-          </div>
-
           <div className="flex justify-between font-bold text-base mb-4">
             <span>Total</span>
             <span>₹{total.toFixed(2)}</span>
           </div>
 
-          <button className="w-full bg-[#FC8019] text-white font-semibold py-3 rounded-lg">
+          <button onClick={()=> popUp()} className="w-full bg-[#FC8019] text-white font-semibold py-3 rounded-lg">
             Proceed To Payment
           </button>
         </div>
