@@ -7,8 +7,33 @@ import firstFoodCard from '../assets/first-foodcard.png';
 import secondFoodCard from '../assets/2nd-foodcard.png';
 import Products from "./Products";
 import Fooddetails from "./Fooddetails";
+import Footer from "./Footer";
 
 const Home = ({ search, setCard }) => {
+
+  const [products, setProducts] = useState([])
+
+  const [goods, setGoods] = useState([])
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/recipes/?limit=6')
+    .then(res => res.json())
+    .then(data =>{
+      setProducts(data.recipes)
+    })
+  }, [])
+
+
+    useEffect(() => {
+    fetch('https://dummyjson.com/recipes/?limit=4')
+    .then(res => res.json())
+    .then(data =>{
+      setGoods(data.recipes)
+    })
+  }, [])
+
+  const searchedItem = goods.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
+
     return ( 
 
         <>
@@ -121,6 +146,65 @@ const Home = ({ search, setCard }) => {
 
 
           <Products search={search} setCard={setCard}/>
+
+      <section className="flex items-center justify-center bg-orange-500 rounded-lg px-8 py-6 gap-4">
+       <h3 className="text-white text-xl">Search by Restaurant</h3>
+
+  <div className="border border-white w-[50%] rounded-2xl">
+    <input type="text" placeholder="Enter item or restaurant you are looking for" className="px-5 py-3 text-sm w-[70%]"/>
+  </div>
+
+  <button className="bg-black text-white text-sm font-medium px-5 py-3 rounded-full whitespace-nowrap">Search Now</button>
+</section>
+
+
+        
+
+        {/* <section>
+          <h2>What's on your mind</h2>
+          {products.map((item) => (
+            <div key={item.id}>
+              <img src={item.image} alt="" />
+              <h2>{item.name}</h2>
+            </div>
+          ))}
+        </section> */}
+
+        <section className="py-10 mx-auto">
+  <h2 className="text-lg font-semibold mb-6 ml-[20vw]">What's on your mind?</h2>
+
+  <div className="flex justify-center gap-8">
+    {products.map((item) => (
+      <div key={item.id} className="flex flex-col items-center gap-2">
+        <img src={item.image} alt="" className="w-20 h-20 rounded-full object-cover"/>
+        <h3 className="text-sm font-medium">{item.name}</h3>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+
+  <section className="mt-[5vh]">
+
+    <h2 className="text-lg font-semibold mb-2 ml-[20vw]">personalised recommendation</h2>
+                <div className="flex justify-center gap-6 px-8 py-8">
+  {searchedItem.map((item) => (
+     <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)}>
+         <div
+      key={item.id}
+      className="bg-white rounded-2xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+    >
+      <img src={item.image} alt={item.name} className="w-full h-[30vh] object-cover" />
+      <div className="p-3">
+        <h2 className="font-semibold text-sm truncate">{item.name}</h2>
+        <p className="text-gray-500 text-xs mt-1">{item.cuisine}</p>
+      </div>
+    </div>
+     </Link>
+  ))}
+</div>
+  </section>
 
         </>
      );

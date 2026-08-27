@@ -11,6 +11,7 @@ import secondFoodCard from './assets/2nd-foodcard.png';
 import Products from "./components/Products";
 import Searchresults from "./components/Searchresults";
 import Fooddetails from "./components/Fooddetails";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -57,7 +58,7 @@ function App() {
         <Route path='/search' element={<Searchresults setCard={setCard}/>} />
     </Routes>
 
-    {/* <Home search={search}/> */}
+    <Footer />
     </>
   )
 }
