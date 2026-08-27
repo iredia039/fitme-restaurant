@@ -31,21 +31,10 @@ const Products = ({search, setCard}) => {
         <h2>Nearby restaurant</h2>
 
 
-        {/* <div className="grid grid-cols-5 gap-2.5">
-                 {products.map((item) => (
-         <div key={item.id}>
-            <img src={item.image} alt="" />
-            <h2>{item.name}</h2>
-            <p>{item.cuisine}</p>
-         </div>
-        ))}
-        </div> */}
-
-
-        <div className="flex justify-around">
+        <div className="flex flex-col lg:flex-row lg:justify-around gap-6">
           <div>
-          <h2>nearby restaurant</h2>
-                                <div className="grid grid-cols-2 gap-6 px-8 py-8">
+          <h2 className="px-4 sm:px-8">nearby restaurant</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-8 py-8">
   {nearby.map((item) => (
      <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)}>
          <div
@@ -64,8 +53,8 @@ const Products = ({search, setCard}) => {
 </div>
 
 <div>
-  <h2>recommended</h2>
-              <div className="grid grid-cols-2 gap-6 px-8 py-8">
+  <h2 className="px-4 sm:px-8">recommended</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4 sm:px-8 py-8">
   {recommended.map((item) => (
      <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)}>
          <div

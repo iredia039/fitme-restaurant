@@ -22,9 +22,9 @@ function handleSubmit(e) {
 
         <>
 
-        <div className="flex justify-center items-center h-[40vh] mt-[40vh] pb-[40vh]">
+        <div className="flex justify-center items-center min-h-[70vh] px-4 py-10 sm:mt-[20vh]">
 
-        <form onSubmit={handleSubmit} className="border w-[20vw] h-[40vh] p-6 rounded-lg shadow-md">
+        <form onSubmit={handleSubmit} className="border w-full max-w-sm sm:w-[20vw] sm:min-w-[320px] h-auto p-6 rounded-lg shadow-md">
 
             <h2 className="text-xl font-bold text-center mb-6">Login</h2>
 

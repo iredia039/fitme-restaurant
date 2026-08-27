@@ -12,11 +12,11 @@ const navigate = useNavigate()
     return ( 
         <>
 
-        <div className="h-[71vh] mt-[10vh] flex flex-col">
+        <div className="min-h-[71vh] mt-6 sm:mt-[10vh] flex flex-col px-4">
 
         <div className="flex-1 flex justify-center items-center">
 
-        <form action="" className="bg-white w-87.5 p-8 rounded-xl shadow-md">
+        <form action="" className="bg-white w-full max-w-sm p-6 sm:p-8 rounded-xl shadow-md">
 
             <label htmlFor="email" className="block mb-2">Email address</label>
 

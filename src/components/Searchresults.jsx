@@ -47,7 +47,6 @@ function Searchresults({ setCard }) {
 
                 ))}
             </div>
-            {/* <p className="text-gray-400 mt-4">{products.length}</p> */}
         </div>
         </>
     );

@@ -24,35 +24,32 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
   }
 
   return (
-    <div className="px-8 py-8 max-w-6xl mx-auto">
+    <div className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
       <h2 className="text-xl font-bold border-b pb-3 mb-6">Secure Checkout</h2>
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
 
-        {/* Left: form */}
-        <div className="col-span-2">
-          {/* Delivery address */}
+        <div className="lg:col-span-2">
           <div className="mb-8">
           <h3 className="flex items-center gap-2 font-semibold mb-3">
               <FaMapMarkerAlt className="text-orange-500" /> Delivery address
             </h3>
-            <div className="flex gap-4">
-              <div className="text-left text-sm p-4 rounded-lg border border-dashed w-64 flex gap-2 items-start bg-[#FC8019] text-white border-[#FC8019]">
+            <div className="flex flex-wrap gap-4">
+              <div className="text-left text-sm p-4 rounded-lg border border-dashed w-full sm:w-64 flex gap-2 items-start bg-[#FC8019] text-white border-[#FC8019]">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse velit vel eos ex!</span>
               </div>
-              <div className="text-left text-sm p-4 rounded-lg border  border-dashed w-64 flex gap-2 items-start border-[#FC8019] text-gray-700">
+              <div className="text-left text-sm p-4 rounded-lg border  border-dashed w-full sm:w-64 flex gap-2 items-start border-[#FC8019] text-gray-700">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia esse tenetur amet laudantium!</span>
               </div>
             </div>
           </div>
 
-          {/* Type of order */}
           <div className="mb-6">
             <h3 className="flex items-center gap-2 font-semibold mb-3">
               <FaMapMarkerAlt className="text-orange-500" /> Type of Order
             </h3>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <div className="text-sm font-medium px-4 py-2 rounded-lg border bg-[#FC8019] text-white border-[#FC8019]">Subscription</div>
               <div className="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-600">
                 Schedule Order
@@ -63,12 +60,11 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
             </div>
           </div>
 
-          {/* Subscription details */}
-          <div className="flex gap-8 border-b mb-6">
+          <div className="flex flex-wrap gap-4 sm:gap-8 border-b mb-6">
             <div className="pb-3 text-sm font-medium text-[#FC8019] border-b-2 border-[#FC8019]">Monthly</div>
             <div className="pb-3 text-sm font-medium text-gray-500">Weekly</div>
             <div className="pb-3 text-sm font-medium text-gray-500">Custom</div>
-            <div className="ml-auto pb-3">
+            <div className="sm:ml-auto pb-3">
               <p className="text-xs text-gray-500 mb-1">What's the plan?</p>
               <div className="flex border rounded-lg overflow-hidden">
                 <div className="text-xs px-3 py-1.5 bg-[#FC8019] text-white">3-Days/Week</div>
@@ -77,7 +73,7 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-6">
             <div>
               <label className="text-sm font-medium block mb-2">What time do you want us to deliver?</label>
               <p className="border-b w-full py-1 text-sm">16:30</p>
@@ -89,8 +85,7 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
           </div>
         </div>
 
-        {/* Right: cart summary */}
-        <div className="border rounded-2xl p-5 h-[60vh]">
+        <div className="border rounded-2xl p-5 h-auto lg:h-[60vh]">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-bold">Cart</h3>
             <span className="text-gray-500 text-sm">{cart.length} Items</span>

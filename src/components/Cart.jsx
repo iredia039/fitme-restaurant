@@ -14,9 +14,8 @@ function Cart({ addQuantity, removeQuantity, show, setShow, cart }) {
   return (
     <>
       {show ? (
-        <section className="fixed top-0 right-0 h-screen w-96 bg-white shadow-2xl z-50 flex flex-col">
+        <section className="fixed top-0 right-0 h-screen w-full sm:w-96 bg-white shadow-2xl z-50 flex flex-col">
 
-          {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b">
             <h2 className="text-xl font-bold">Cart</h2>
             <div className="flex items-center gap-4">
@@ -27,7 +26,6 @@ function Cart({ addQuantity, removeQuantity, show, setShow, cart }) {
             </div>
           </div>
 
-          {/* Items */}
           <div className="flex-1 overflow-y-auto px-6 py-4">
             {cart.length === 0 ? (
               <p className="text-gray-400 text-sm mt-10 text-center">Your cart is empty</p>
@@ -59,7 +57,6 @@ function Cart({ addQuantity, removeQuantity, show, setShow, cart }) {
             )}
           </div>
 
-          {/* Footer */}
           {cart.length > 0 && (
             <div className="px-6 py-4 border-t">
               <div className="flex items-center justify-between">
