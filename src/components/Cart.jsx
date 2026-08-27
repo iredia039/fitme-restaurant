@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Cart({ addQuantity, removeQuantity, show, setShow, addCart}) {
+function Cart({ addQuantity, removeQuantity, show, setShow, cart}) {
     return (
     <>
     {show ? 
