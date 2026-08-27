@@ -35,7 +35,24 @@ function App() {
     })
   }
   
-  console.log(cart);
+  function addQuantity(id) {
+
+    setCart(goods => {
+      goods.map(item =>
+        item.id === id ? {...item, quantity: item.quantity + 1} : item
+      )
+    })
+    
+  }
+
+  function removeQuantity(id) {
+    
+    setCart(goods => {
+      goods.map(item => 
+        item.id === id ? {...item, quantity: item.quantity - 1} : item
+      ).filter(item => item.quantity > 0)
+    })
+  }
   
 
   return (
