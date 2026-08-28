@@ -26,6 +26,8 @@ function Searchresults({ setCard }) {
 
           const searchedItem = products.filter( item => item.name.toLowerCase().includes(query.toLowerCase()))
 
+// console.log(query);
+// searchParams()
 
 
     

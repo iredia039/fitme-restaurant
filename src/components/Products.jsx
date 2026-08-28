@@ -23,6 +23,9 @@ const Products = ({search, setCard}) => {
       const nearby = searchedItem.slice(0, 4)
       const recommended = searchedItem.slice(4, 8)
 
+      // console.log(nearby);
+      
+
 
     return ( 
 
