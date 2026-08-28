@@ -26,7 +26,7 @@ const Navbar = ({search, setSearch, addCart, cartItems, show, setShow}) => {
          </div>
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <div className="flex items-center flex-1 w-full sm:max-w-md sm:mx-8 border rounded-full px-4 py-2">
-                <input type="text" placeholder="search here" value={typed} onChange={(e)=>setTyped(e.target.value)} className="w-full min-w-0 outline-0"/>
+                <input type="text" placeholder="search here" value={typed} onChange={(e)=>setTyped(e.target.value)} className="w-full min-w-0"/>
                <Link to={`/search?q=${typed}`}>
                <FaSearch className="text-gray-400 cursor-pointer"/>
                </Link>
