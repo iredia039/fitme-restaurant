@@ -64,9 +64,9 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
           </div>
 
           <div className="flex flex-wrap gap-4 sm:gap-8 border-b mb-6">
-            <div className="pb-3 text-sm font-medium text-[#FC8019] border-b-2 border-[#FC8019]">Monthly</div>
-            <div className="pb-3 text-sm font-medium text-gray-500">Weekly</div>
-            <div className="pb-3 text-sm font-medium text-gray-500">Custom</div>
+            <div className="pb-3 text-[#FC8019] border-b-2 border-[#FC8019]">Monthly</div>
+            <div className="pb-3  text-gray-500">Weekly</div>
+            <div className="pb- text-gray-500">Custom</div>
             <div className="sm:ml-auto pb-3">
               <p className="text-xs text-gray-500 mb-1">What's the plan?</p>
               <div className="flex border rounded-lg overflow-hidden">

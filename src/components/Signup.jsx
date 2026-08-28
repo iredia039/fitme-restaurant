@@ -45,9 +45,7 @@ const navigate = useNavigate()
                 Continue with Apple
             </button>
 
-            <button type="button" className="w-full border border-gray-300 rounded-md p-2">
-                Continue with Facebook
-            </button>
+     <button type="button" className="w-full border border-gray-300 rounded-md p-2"> Continue with Facebook</button>
 
         </form>
 

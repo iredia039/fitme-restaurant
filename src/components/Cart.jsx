@@ -11,6 +11,9 @@ function Cart({ addQuantity, removeQuantity, show, setShow, cart }) {
 
   const navigate = useNavigate();
 
+  // console.log(subtotal);
+  
+
   return (
     <>
       {show ? (
