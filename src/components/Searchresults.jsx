@@ -32,12 +32,14 @@ function Searchresults({ setCard }) {
     return (
 
         <>
-                <div className="px-4 sm:px-8 py-8 bg-black min-h-screen">
+
+        <h1 className='text-center text-4xl'>search results for {query}</h1>
+                <div className="px-4 sm:px-8 py-8 min-h-screen">
             <h4 className="text-xl sm:text-2xl font-semibold text-white mb-6">results for {query}</h4>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
                 {searchedItem.map((item) => (
-        <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)} className='border cursor-pointer'>
+        <Link to='/fooddetails' key={item.id} onClick={()=>setCard(item)} className='cursor-pointer'>
 
                     <div key={item.id} className="bg-white rounded-2xl shadow-md overflow-hidden">
                         <img src={item.image} alt="" className="w-full h-32 sm:h-40 object-cover" />
