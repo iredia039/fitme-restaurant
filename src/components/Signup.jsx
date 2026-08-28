@@ -41,7 +41,7 @@ const navigate = useNavigate()
                 Continue with Google
             </button>
 
-            <button type="button" className="w-full border border-gray-300 rounded-md p-2 mb-2">
+            <button type="button" className="w-full border border-gray-300 bg-black text-white rounded-md p-2 mb-2">
                 Continue with Apple
             </button>
 
