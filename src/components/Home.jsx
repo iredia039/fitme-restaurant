@@ -59,7 +59,7 @@ const Home = ({ search, setCard }) => {
     </p>
 
     <div>
-           <input type="text" placeholder="search here" className="border rounded-2xl w-[90%] max-w-md"/>
+           <input type="text" placeholder="search here" className="border rounded-2xl w-[90%] py-1 px-1 max-w-md"/>
     </div>
   </div>
 

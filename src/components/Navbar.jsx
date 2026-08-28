@@ -39,7 +39,7 @@ const Navbar = ({search, setSearch, addCart, cartItems, show, setShow}) => {
               {cartCount}
             </span>
             </button>
-            <Link to='/Signup' className="bg-black p-1 rounded-[10px] text-white whitespace-nowrap">Sign up</Link>
+            <Link to='/Signup' className="bg-black p-3 rounded-[10px] text-white whitespace-nowrap">Sign up</Link>
             </div>
             </div>
         </nav>
