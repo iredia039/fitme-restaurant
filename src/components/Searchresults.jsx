@@ -50,6 +50,7 @@ function Searchresults({ setCard }) {
                 ))}
             </div>
         </div>
+
         </>
     );
 }

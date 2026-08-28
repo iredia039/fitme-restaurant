@@ -30,8 +30,8 @@ function Fooddetails({ card, addCart, cart }) {
 
         <div className="border border-dashed border-amber-600 p-6 rounded-lg h-auto sm:h-[15vh]">
           <h3 className="font-semibold text-3xl text-amber-600">offers</h3>
-          <p className="text-sm text-white">50% off up to ₹100 | Use code TRYNEW</p><br />
-          <p className="text-sm text-white">20% off | Use code PARTY</p>
+          <p className="text-sm text-white">50% off up to ₹100, Use code TRYNEW</p><br />
+          <p className="text-sm text-white">20% off, Use code PARTY</p>
         </div>
       </div>
       
@@ -62,6 +62,9 @@ function Fooddetails({ card, addCart, cart }) {
       <button className="text-green-600 text-sm font-semibold cursor-pointer" onClick={() => addCart(card)}>Add +</button>
     </div>
   </div>
+
+        <div className='lg:h-[45vh] w-0.5'></div>
+
 
 
 </div>
