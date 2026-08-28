@@ -19,7 +19,7 @@ function Fooddetails({ card, addCart, cart }) {
           <h1 className="text-2xl font-bold">{card.name}</h1>
           <p className="text-gray-500 text-sm mt-1">{card.cuisine}</p>
           <div className="flex flex-wrap gap-4 items-center mt-3 text-sm text-gray-600">
-            <span className="text-green-600 font-semibold">★ 4.0</span>
+            <p className="font-semibold"><span className='text-green-600'>&#x2605;</span> 4.0</p>
             <span>100+ ratings</span>
             <div className="hidden sm:block h-[5vh] bg-gray-600 w-0.5"></div>
             <span>30 Mins <br /> Delivery Time</span>

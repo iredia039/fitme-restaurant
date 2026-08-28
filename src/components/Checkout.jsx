@@ -20,27 +20,30 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
   }
 
   function popUp() {
-    alert('sucessfully purchased shii')
+    alert('sucessfully purchased this stuff')
   }
+
+  // console.log(cart);
+  
 
   return (
     <div className="px-4 sm:px-8 py-8 max-w-6xl mx-auto">
-      <h2 className="text-xl font-bold border-b pb-3 mb-6">Secure Checkout</h2>
+          <h2 className="text-xl font-bold border-b pb-3 mb-6">Secure Checkout</h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
 
         <div className="lg:col-span-2">
-          <div className="mb-8">
+     <div className="mb-8">
           <h3 className="flex items-center gap-2 font-semibold mb-3">
               <FaMapMarkerAlt className="text-orange-500" /> Delivery address
             </h3>
             <div className="flex flex-wrap gap-4">
               <div className="text-left text-sm p-4 rounded-lg border border-dashed w-full sm:w-64 flex gap-2 items-start bg-[#FC8019] text-white border-[#FC8019]">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse velit vel eos ex!</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse velit vel eos ex!</p>
               </div>
               <div className="text-left text-sm p-4 rounded-lg border  border-dashed w-full sm:w-64 flex gap-2 items-start border-[#FC8019] text-gray-700">
                 <FaMapMarkerAlt className="mt-0.5 shrink-0" />
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia esse tenetur amet laudantium!</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia esse tenetur amet laudantium!</p>
               </div>
             </div>
           </div>
@@ -54,9 +57,9 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
               <div className="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-600">
                 Schedule Order
               </div>
-              <div className="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-600">
+              <h1 className="text-sm font-medium px-4 py-2 rounded-lg border border-gray-300 text-gray-600">
                 Order Now
-              </div>
+              </h1>
             </div>
           </div>
 
@@ -75,11 +78,11 @@ function Checkout({ cart, addQuantity, removeQuantity }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-6">
             <div>
-              <label className="text-sm font-medium block mb-2">What time do you want us to deliver?</label>
+              <h2 className="text-sm font-medium block mb-2">What time do you want us to deliver?</h2>
               <p className="border-b w-full py-1 text-sm">16:30</p>
             </div>
             <div>
-              <label className="text-sm font-medium block mb-2">Any Note for us?</label>
+              <h2 className="text-sm font-medium block mb-2">Any Note for us?</h2>
               <textarea value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Type you note here" className="border rounded-lg w-full p-3 text-sm text-gray-600 h-20"></textarea>
             </div>
           </div>
